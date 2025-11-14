@@ -28,7 +28,7 @@ export default function Dashboard(){
         </div>
 
         <aside className="space-y-4">
-          <div className="bg-white dark:bg-slate-800 p-4 rounded-2xl shadow">
+          <div className="bg-white bg-slate-800 p-4 rounded-2xl shadow">
             <h4 className="font-semibold">Upcoming Deadlines</h4>
             <div className="mt-3 space-y-2">
               {upcoming.length === 0 ? <div className="text-sm text-slate-500 dark:text-slate-400">No upcoming deadlines</div> :
