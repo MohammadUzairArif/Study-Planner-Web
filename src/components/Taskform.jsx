@@ -1,4 +1,3 @@
-// src/components/TaskForm.jsx
 import React, { useEffect, useState } from "react";
 import { useApp } from "../contexts/AppContext";
 import toast from "react-hot-toast";
@@ -24,9 +23,7 @@ export default function TaskForm({ editTask = null, onClose }) {
     }
   }, [editTask]);
 
-  const reset = () => {
-    setTitle(""); setSubject(""); setDueDate(""); setPriority("medium"); setTags("");
-  };
+  const reset = () => { setTitle(""); setSubject(""); setDueDate(""); setPriority("medium"); setTags(""); };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,21 +46,21 @@ export default function TaskForm({ editTask = null, onClose }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white dark:bg-slate-800 p-4 rounded-2xl shadow space-y-3">
+    <form onSubmit={handleSubmit} className="bg-slate-800 p-4 rounded-2xl shadow space-y-3">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <input aria-label="Task title" value={title} onChange={e=>setTitle(e.target.value)} placeholder="Task title" className="border rounded p-2 bg-transparent" />
-        <input aria-label="Subject" value={subject} onChange={e=>setSubject(e.target.value)} placeholder="Subject (e.g., Math)" className="border rounded p-2 bg-transparent" />
-        <input aria-label="Due date" type="date" value={dueDate} onChange={e=>setDueDate(e.target.value)} className="border rounded p-2 bg-transparent" />
-        <select aria-label="Priority" value={priority} onChange={e=>setPriority(e.target.value)} className="border rounded p-2 bg-transparent">
+        <input aria-label="Task title" value={title} onChange={e=>setTitle(e.target.value)} placeholder="Task title" className="border border-slate-700 rounded p-2 bg-slate-900 text-white" />
+        <input aria-label="Subject" value={subject} onChange={e=>setSubject(e.target.value)} placeholder="Subject (e.g., Math)" className="border border-slate-700 rounded p-2 bg-slate-900 text-white" />
+        <input aria-label="Due date" type="date" value={dueDate} onChange={e=>setDueDate(e.target.value)} className="border border-slate-700 rounded p-2 bg-slate-900 text-white" />
+        <select aria-label="Priority" value={priority} onChange={e=>setPriority(e.target.value)} className="border border-slate-700 rounded p-2 bg-slate-900 text-white">
           <option value="high">High</option>
           <option value="medium">Medium</option>
           <option value="low">Low</option>
         </select>
-        <input aria-label="Tags" value={tags} onChange={e=>setTags(e.target.value)} placeholder="Tags comma separated" className="border rounded p-2 bg-transparent col-span-1 sm:col-span-2" />
+        <input aria-label="Tags" value={tags} onChange={e=>setTags(e.target.value)} placeholder="Tags comma separated" className="border border-slate-700 rounded p-2 bg-slate-900 text-white col-span-1 sm:col-span-2" />
       </div>
 
       <div className="flex justify-end gap-2">
-        {onClose && <button type="button" onClick={onClose} className="px-3 py-1 rounded bg-slate-100 dark:bg-slate-700">Cancel</button>}
+        {onClose && <button type="button" onClick={onClose} className="px-3 py-1 rounded bg-slate-700 text-white">Cancel</button>}
         <button type="submit" className="px-4 py-2 rounded bg-primary text-white">{editTask ? "Save" : "Add Task"}</button>
       </div>
     </form>

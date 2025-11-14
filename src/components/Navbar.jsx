@@ -11,19 +11,17 @@ export default function Navbar(){
           <Link to="/" className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-accent flex items-center justify-center text-white font-bold">SP</div>
             <div>
-              <h1 className="text-lg font-semibold">Smart Study Planner</h1>
+              <h1 className="text-lg font-semibold text-white">Smart Study Planner</h1>
               <p className="text-xs text-slate-300">Plan · Focus · Improve</p>
             </div>
           </Link>
         </div>
 
-        <div className="flex items-center gap-3">
-          <nav className="hidden md:flex items-center gap-2">
-            <Link to="/dashboard" className={`px-3 py-2 rounded ${location.pathname==="/dashboard" ? "bg-primary text-white" : "text-slate-200 hover:bg-slate-700"}`}>Dashboard</Link>
-            <Link to="/tasks" className={`px-3 py-2 rounded ${location.pathname==="/tasks" ? "bg-primary text-white" : "text-slate-200 hover:bg-slate-700"}`}>Tasks</Link>
-            <Link to="/calendar" className={`px-3 py-2 rounded ${location.pathname==="/calendar" ? "bg-primary text-white" : "text-slate-200 hover:bg-slate-700"}`}>Calendar</Link>
-          </nav>
-        </div>
+        <nav className="hidden md:flex items-center gap-2">
+          <Link to="/dashboard" className={`px-3 py-2 rounded ${location.pathname==="/dashboard" ? "bg-primary text-white" : "text-slate-300 hover:bg-slate-700"}`}>Dashboard</Link>
+          <Link to="/tasks" className={`px-3 py-2 rounded ${location.pathname==="/tasks" ? "bg-primary text-white" : "text-slate-300 hover:bg-slate-700"}`}>Tasks</Link>
+          <Link to="/calendar" className={`px-3 py-2 rounded ${location.pathname==="/calendar" ? "bg-primary text-white" : "text-slate-300 hover:bg-slate-700"}`}>Calendar</Link>
+        </nav>
       </div>
     </header>
   );

@@ -8,11 +8,13 @@ import FocusPage from "./pages/Focus";
 import NotesPage from "./pages/Notes";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import { useApp } from "./contexts/AppContext";
 
 export default function App() {
+  const { settings } = useApp();
 
   React.useEffect(() => {
-    document.documentElement.classList.add("dark"); // always dark mode
+    document.documentElement.classList.add("dark");
   }, []);
 
   return (

@@ -1,10 +1,9 @@
-// src/components/TaskList.jsx
 import React from "react";
 import TaskItem from "./TaskItem";
 
 export default function TaskList({ tasks, onEdit }) {
   if (!tasks || tasks.length === 0) {
-    return <div className="text-center p-6 text-slate-500 dark:text-slate-400">No tasks yet — add your first study task!</div>;
+    return <div className="text-center p-6 text-slate-400">No tasks yet — add your first study task!</div>;
   }
 
   const sorted = [...tasks].sort((a,b) => {

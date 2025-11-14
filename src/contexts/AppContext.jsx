@@ -10,7 +10,7 @@ const initial = {
   notes: loadData("notes", []),
   pomodoroSessions: loadData("pomodoroSessions", []),
   achievements: loadData("achievements", []),
-  settings: loadData("settings", {}), // remove darkMode handling
+  settings: loadData("settings", { darkMode: true, onboardingSeen: false }),
   stats: loadData("stats", { weeklyCompleted: [] }),
 };
 

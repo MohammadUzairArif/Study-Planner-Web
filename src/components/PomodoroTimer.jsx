@@ -1,4 +1,3 @@
-// src/components/PomodoroTimer.jsx
 import React, { useEffect, useRef, useState } from "react";
 import { useApp } from "../contexts/AppContext";
 import toast from "react-hot-toast";
@@ -13,9 +12,7 @@ export default function PomodoroTimer({ workMinutes = 25, breakMinutes = 5 }) {
   useEffect(()=> {
     if (running) {
       timerRef.current = setInterval(()=> setSecondsLeft(s => s - 1), 1000);
-    } else {
-      clearInterval(timerRef.current);
-    }
+    } else clearInterval(timerRef.current);
     return ()=> clearInterval(timerRef.current);
   }, [running]);
 
@@ -26,9 +23,8 @@ export default function PomodoroTimer({ workMinutes = 25, breakMinutes = 5 }) {
       if (mode === "work") {
         addAchievement({ title: "Completed Pomodoro", createdAt: new Date().toISOString() });
         toast.success("Pomodoro completed! Good job.");
-      } else {
-        toast("Break finished");
-      }
+      } else toast("Break finished");
+
       if (mode === "work") {
         setMode("break");
         setSecondsLeft(breakMinutes * 60);
@@ -49,15 +45,15 @@ export default function PomodoroTimer({ workMinutes = 25, breakMinutes = 5 }) {
   const ss = String(secondsLeft%60).padStart(2,"0");
 
   return (
-    <div className="bg-white dark:bg-slate-800 p-4 rounded-2xl shadow text-center">
-      <h4 className="font-semibold">{mode === "work" ? "Focus Time" : "Break Time"}</h4>
-      <div className="text-4xl font-bold mt-2">{mm}:{ss}</div>
-      <div className="mt-4 flex items-center justify-center gap-3">
+    <div className="bg-slate-800 p-4 rounded-2xl shadow text-center">
+      <h4 className="font-semibold text-white">{mode === "work" ? "Focus Time" : "Break Time"}</h4>
+      <div className="text-4xl font-bold mt-2 text-white">{mm}:{ss}</div>
+      <div className="mt-4 flex items-center justify-center gap-3 flex-wrap">
         {!running ? <button onClick={start} className="px-4 py-2 bg-primary text-white rounded">Start</button> :
-          <button onClick={pause} className="px-4 py-2 bg-yellow-400 rounded">Pause</button>}
-        <button onClick={reset} className="px-4 py-2 bg-slate-100 dark:bg-slate-700 rounded">Reset</button>
+          <button onClick={pause} className="px-4 py-2 bg-yellow-500 rounded">Pause</button>}
+        <button onClick={reset} className="px-4 py-2 bg-slate-700 rounded text-white">Reset</button>
       </div>
-      <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">Work {workMinutes}m • Break {breakMinutes}m</p>
+      <p className="text-xs text-slate-400 mt-2">Work {workMinutes}m • Break {breakMinutes}m</p>
     </div>
   );
 }
