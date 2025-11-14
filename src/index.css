@@ -1,1 +1,15 @@
 @import "tailwindcss";
+/* simple app-wide styles */
+:root{
+  --bg: #f8fafc;
+  --card: #ffffff;
+}
+
+/* keep full height */
+html, body, #root {
+  height: 100%;
+}
+
+.prose {
+  max-width: 100%;
+}

@@ -1,17 +1,18 @@
-export const loadTasks = () => {
+// src/utils/storage.js
+export const loadData = (key, fallback = null) => {
   try {
-    const raw = localStorage.getItem("study-planner-tasks");
-    return raw ? JSON.parse(raw) : [];
+    const raw = localStorage.getItem(`sp:${key}`);
+    return raw ? JSON.parse(raw) : fallback;
   } catch (e) {
-    console.error("Failed to load tasks", e);
-    return [];
+    console.error("loadData error", e);
+    return fallback;
   }
 };
 
-export const saveTasks = (tasks) => {
+export const saveData = (key, data) => {
   try {
-    localStorage.setItem("study-planner-tasks", JSON.stringify(tasks));
+    localStorage.setItem(`sp:${key}`, JSON.stringify(data));
   } catch (e) {
-    console.error("Failed to save tasks", e);
+    console.error("saveData error", e);
   }
 };
