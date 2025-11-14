@@ -11,7 +11,7 @@ const NavItem = ({to, label, Icon}) => (
 
 export default function Sidebar(){
   return (
-    <aside className="w-full lg:w-64 hidden lg:block">
+    <aside className="w-full lg:w-64 hidden lg:block bg-slate-900">
       <div className="space-y-3 sticky top-6">
         <div className="bg-slate-800 p-3 rounded-2xl shadow">
           <h3 className="font-bold text-white">Menu</h3>
